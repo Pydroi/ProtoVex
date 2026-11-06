@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Privacy notice · {{business_name}}{% endblock %}
+{% block content %}
+<section class="section doc">
+<div class="section-kicker">PRIVACY & CUSTOMER DATA</div>
+<h1>Privacy notice</h1>
+{% if not policy_reviewed %}<p class="warning">LOCAL TEST DRAFT: Business identity, retention, suppliers, legal basis and cross-border processing must be reviewed before launch. Do not accept real customer data yet.</p>{% endif %}
+<p><strong>Who we are:</strong> {{legal_name}} trading as {{business_name}}. Contact address: {{business_address}}. Contact: <a href="mailto:{{business_email}}">{{business_email}}</a>.</p>
+<p><strong>Information we collect:</strong> your name, email, organisation (if provided), uploaded 3D model, material and design requirements, quote details and communications. Once you place an order, we may record dispatch and payment-confirmation information.</p>
+<p><strong>Why we use it:</strong> to respond to your request, evaluate technical feasibility, provide a quote, fulfil your order and comply with business record-keeping obligations. The final lawful bases and full privacy information must be confirmed before launch.</p>
+<p><strong>Who processes it:</strong> our website uses Render for application hosting and Supabase for storage and order records. Customer designs are kept in a private storage bucket. Where relevant, email, payment and shipping providers also process the information needed for their services. Confirm processing locations and international-transfer safeguards before launch.</p>
+<p><strong>Retention and deletion:</strong> {{privacy_retention}}. Please request access, correction or deletion where the law permits by emailing <a href="mailto:{{business_email}}">{{business_email}}</a>. Not all statutory records can be deleted immediately.</p>
+<p><strong>Your rights:</strong> you may have rights of access, correction, objection, restriction, portability and erasure under UK data protection law. You can complain to the <a href="https://ico.org.uk/make-a-complaint/" rel="noopener">Information Commissioner's Office</a>.</p>
+<p><strong>Security:</strong> we limit internal access to customer files and use private Supabase Storage. No online system is perfectly risk-free.</p>
+</section>
+{% endblock %}

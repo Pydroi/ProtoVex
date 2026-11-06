@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Terms · {{business_name}}{% endblock %}
+{% block content %}
+<section class="section doc">
+<div class="section-kicker">SERVICE INFORMATION</div>
+<h1>Terms of service</h1>
+{% if not policy_reviewed %}<p class="warning">LOCAL TEST DRAFT: Complete and obtain appropriate review of your UK consumer terms before taking live orders, especially delivery, returns and cancellation rights.</p>{% endif %}
+<p><strong>Business details:</strong> {{legal_name}} trading as {{business_name}}, {{business_address}}. Email <a href="mailto:{{business_email}}">{{business_email}}</a>.</p>
+<p><strong>Our service:</strong> we offer small-run FDM printing in PLA and PETG subject to technical review and capacity. Submitting a design is a request for a quotation, not a purchase.</p>
+<p><strong>Quotes and payment:</strong> we will provide a quote including material, quantity, delivery cost, estimated dispatch and other agreed specifications. Any payment is completed via a separate secure payment provider link after you accept the quote. We never ask you to send card details by email.</p>
+<p><strong>Design and safety:</strong> you confirm that you have the necessary rights to have your design manufactured. We may decline unsafe, prohibited, infringing or technically unsuitable requests. Parts are not certified for safety-critical or medical use.</p>
+<p><strong>Manufacturing tolerances:</strong> FDM-printed components may include visible layer lines and dimensional variations. Any critical dimensions, finish or fit requirements must be agreed in writing before ordering.</p>
+<p><strong>Dispatch:</strong> turnaround estimates are confirmed during quoting, not guaranteed by a website form. We will contact you about material delays or failed prints before dispatch.</p>
+<p><strong>Cancellation, returns and statutory rights:</strong> cancellation rights for some made-to-specification goods may differ from standard online purchases. Any statutory rights concerning faulty, damaged or misdescribed goods remain in force. The precise policy and mandatory pre-contract information must be confirmed before launch; contact <a href="mailto:{{business_email}}">{{business_email}}</a> for support.</p>
+</section>
+{% endblock %}

@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: protovex
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --workers 1 --threads 4 --timeout 120 --bind 0.0.0.0:$PORT app:app
+    healthCheckPath: /healthz
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.11"
+      - key: PUBLIC_LAUNCH
+        value: "0"
+      - key: HTTPS_ONLY
+        value: "1"
+      - key: MAX_DIRECT_FILE_MB
+        value: "100"
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: BUSINESS_EMAIL
+        value: contact@protovex.co.uk
+      - key: BUSINESS_NAME
+        value: ProtoVex
+      - key: LEGAL_NAME
+        sync: false
+      - key: BUSINESS_ADDRESS
+        sync: false
+      - key: LEGAL_REVIEWED
+        value: "0"

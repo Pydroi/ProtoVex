@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="theme-color" content="#07101d">
+
+    <meta name="description"
+          content="UK-based custom FDM 3D printing. Upload your STL, 3MF or OBJ file for a tailored quote.">
+
+    <meta property="og:site_name" content="ProtoVex">
+    <meta property="og:type" content="website">
+
+    <title>
+        {% block title %}{{ business_name }}{% endblock %}
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="topbar">
+
+        <a class="brand" href="{{ url_for('home') }}">
+            <span class="symbol">▰</span>
+            <span>{{ business_name }}</span>
+            <span class="brand-note"> / 3D PRINTING</span>
+        </a>
+
+        <nav>
+            <a href="{{ url_for('home') }}#how">
+                How it works
+            </a>
+
+            <a href="{{ url_for('home') }}#materials">
+                Materials
+            </a>
+
+            <a class="nav-cta" href="{{ url_for('home') }}#quote">
+                Request quote ↗
+            </a>
+        </nav>
+
+    </header>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for cat, msg in messages %}
+            <div class="flash {{ cat }}">
+                {{ msg }}
+            </div>
+        {% endfor %}
+    {% endwith %}
+
+    <!-- Page Content -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer>
+
+        <div>
+            <strong>{{ business_name }}</strong>
+            <p>Made to order. Built for makers.</p>
+        </div>
+
+        <div>
+            <a href="{{ url_for('privacy') }}">Privacy</a>
+            <a href="{{ url_for('terms') }}">Terms</a>
+            <a href="mailto:{{ business_email }}">Contact</a>
+            <a href="{{ url_for('login') }}">Owner login</a>
+        </div>
+
+        <small>
+            Quotes are reviewed by a person.
+            This website does not take payments.
+        </small>
+
+    </footer>
+
+</body>
+</html>
